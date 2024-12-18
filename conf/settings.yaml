@@ -1,2 +1,6 @@
 bot:
   token: Ваш токен
+web:
+  url_launcher_windows: https://127.0.0.1:1370/gameFiles/release/NameLauncher.exe
+  url_launcher_macos: https://127.0.0.1:1370/gameFiles/release/NameLauncher.dmg
+  url_launcher_linux: https://127.0.0.1:1370/gameFiles/release/NameLauncher.AppImage

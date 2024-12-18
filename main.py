@@ -1,23 +1,15 @@
 import asyncio
-from dynaconf import Dynaconf
 from aiogram import Bot, Dispatcher
-from aiogram.types import Message
-
-conf = Dynaconf(settings_files='conf/settings.yaml')
-
-dp = Dispatcher()
-
-@dp.message()
-async def start_message(message: Message):
-    await message.answer('TEST')
+from cogs.command.register import router
+from companent import router, conf
 
 async def main():
-    await dp.start_polling(bot)
-
-if __name__ == '__main__':
     bot = Bot(token=conf.bot.token)
+    dp = Dispatcher()
+    dp.include_router(router)
+    await dp.start_polling(bot)
+if __name__ == '__main__':
     try:
         asyncio.run(main())
     except KeyboardInterrupt:
-        print('Выключен')
-        
+        print('\nВыключен')
